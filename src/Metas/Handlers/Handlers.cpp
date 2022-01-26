@@ -18,8 +18,8 @@ namespace Metas
 
         void DHT1(float temp, float humi)
         {
-            // data.setCurrentTemp(temp);
-            // data.setCurrentHumi(humi);
+            data.setCurrentTemp(temp);
+            data.setCurrentHumi(humi);
         }
     }
 }
