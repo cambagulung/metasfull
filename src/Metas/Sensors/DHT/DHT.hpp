@@ -1,7 +1,7 @@
+#include <DHT.h>
+
 #ifndef METAS_SENSORS_DHT_HPP
 #define METAS_SENSORS_DHT_HPP
-
-#include <DHT.h>
 
 namespace Metas
 {

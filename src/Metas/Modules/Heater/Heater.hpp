@@ -1,8 +1,7 @@
+#include <Metas/Modules/Relay/Relay.hpp>
+
 #ifndef METAS_MODULES_HEATER_HPP
 #define METAS_MODULES_HEATER_HPP
-
-#include <Metas/Modules/Heater/Heater.hpp>
-#include <Metas/Modules/Relay/Relay.hpp>
 
 namespace Metas
 {

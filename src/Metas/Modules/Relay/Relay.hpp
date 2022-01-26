@@ -1,7 +1,7 @@
+#include <stdint.h>
+
 #ifndef METAS_MODULES_RELAY_HPP
 #define METAS_MODULES_RELAY_HPP
-
-#include <stdint.h>
 
 namespace Metas
 {
