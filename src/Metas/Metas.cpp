@@ -1,28 +1,21 @@
-#include <Metas/Data/Data.hpp>
+#include <Metas/Handlers/Handlers.hpp>
 #include <Metas/Metas.hpp>
 #include <Metas/Modules/Heater/Heater.hpp>
 #include <Metas/Sensors/DHT/DHT.hpp>
 
 namespace Metas
 {
-    Data data;
-    Modules::Heater heater(1, true);
-    Sensors::DHT dht(2, DHT22);
-
-    void DHTHandler(float temp, float humi)
-    {
-        data.setCurrentTemp(temp);
-        data.setCurrentHumi(humi);
-    }
+    Modules::Heater heater1(1, true);
+    Sensors::DHT dht1(2, DHT22);
 
     void Metas::setup()
     {
-        data.setup();
+        Handlers::setup();
     }
 
     void Metas::handle()
     {
-        dht.handle(DHTHandler);
-        heater.handle(data.getCurrentTemp(), data.getRequestTemp());
+        dht1.handle(Handlers::DHT1);
+        heater1.handle(Handlers::data.getCurrentTemp(), Handlers::data.getRequestTemp());
     }
 }
