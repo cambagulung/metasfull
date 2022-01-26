@@ -7,9 +7,8 @@ namespace Metas
 {
     namespace Handlers
     {
-        Data data;
-
         void setup(void), DHT1(float temp, float humi);
+        Data getData(void);
     }
 }
 

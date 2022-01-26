@@ -16,6 +16,6 @@ namespace Metas
     void Metas::handle()
     {
         dht1.handle(Handlers::DHT1);
-        heater1.handle(Handlers::data.getCurrentTemp(), Handlers::data.getRequestTemp());
+        heater1.handle(Handlers::getData().getCurrentTemp(), Handlers::getData().getRequestTemp());
     }
 }

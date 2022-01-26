@@ -4,9 +4,16 @@ namespace Metas
 {
     namespace Handlers
     {
+        Data data;
+
+        Data getData(void)
+        {
+            return data;
+        }
+
         void setup(void)
         {
-            // return data.setup();
+            data.setup();
         }
 
         void DHT1(float temp, float humi)
