@@ -1,39 +1,36 @@
 #include <Arduino.h>
 #include <Metas/Modules/Relay/Relay.hpp>
 
-namespace Metas
+namespace Metas::Modules
 {
-    namespace Modules
+    Relay::Relay(uint8_t pin, bool activeLow)
     {
-        Relay::Relay(uint8_t pin, bool activeLow)
-        {
-            setup(pin, activeLow);
-        }
+        setup(pin, activeLow);
+    }
 
-        void Relay::setup(uint8_t pin, bool activeLow)
-        {
-            this->pin = pin;
-            this->activeLow = activeLow;
+    void Relay::setup(uint8_t pin, bool activeLow)
+    {
+        this->pin = pin;
+        this->activeLow = activeLow;
 
-            pinMode(pin, OUTPUT);
-            off();
-        }
+        pinMode(pin, OUTPUT);
+        off();
+    }
 
-        void Relay::on(void)
-        {
-            active = true;
-            return digitalWrite(pin, activeLow ? LOW:HIGH);
-        }
+    void Relay::on(void)
+    {
+        active = true;
+        return digitalWrite(pin, activeLow ? LOW : HIGH);
+    }
 
-        void Relay::off(void)
-        {
-            active = false;
-            return digitalWrite(pin, activeLow ? HIGH:LOW);
-        }
+    void Relay::off(void)
+    {
+        active = false;
+        return digitalWrite(pin, activeLow ? HIGH : LOW);
+    }
 
-        bool Relay::isActive(void)
-        {
-            return active;
-        }
+    bool Relay::isActive(void)
+    {
+        return active;
     }
 }

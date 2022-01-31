@@ -6,7 +6,8 @@
         "istream": "cpp",
         "ranges": "cpp",
         "streambuf": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "string": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

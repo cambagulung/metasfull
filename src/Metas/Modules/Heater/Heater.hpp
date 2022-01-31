@@ -3,20 +3,17 @@
 #ifndef METAS_MODULES_HEATER_HPP
 #define METAS_MODULES_HEATER_HPP
 
-namespace Metas
+namespace Metas::Modules
 {
-    namespace Modules
+    class Heater
     {
-        class Heater
-        {
-        private:
-            Relay relay;
+    private:
+        Relay relay;
 
-        public:
-            Heater(uint8_t pin, bool activeLow);
-            void handle(float currentTemp, float requestTemp), handle(void handler(Relay relay));
-        };
-    }
+    public:
+        Heater(uint8_t pin, bool activeLow);
+        void handle(float currentTemp, float requestTemp), handle(void handler(Relay relay));
+    };
 }
 
 #endif

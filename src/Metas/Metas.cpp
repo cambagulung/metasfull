@@ -1,21 +1,25 @@
-#include <Metas/Handlers/Handlers.hpp>
+#include <Metas/Handlers/IRRemote/IRRemote.hpp>
+#include <Metas/Interfaces/IRRemote/IRRemote.hpp>
 #include <Metas/Metas.hpp>
+#include <Metas/Modules/Fan/Fan.hpp>
 #include <Metas/Modules/Heater/Heater.hpp>
 #include <Metas/Sensors/DHT/DHT.hpp>
 
 namespace Metas
 {
-    Modules::Heater heater1(1, true);
-    Sensors::DHT dht1(2, DHT22);
+    Interfaces::IRRemote::IRRemote Remote(14);
 
     void Metas::setup()
     {
-        Handlers::setup();
+        Serial.begin(9600);
+        Remote.setup();
     }
 
     void Metas::handle()
     {
-        dht1.handle(Handlers::DHT1);
-        heater1.handle(Handlers::getData().getCurrentTemp(), Handlers::getData().getRequestTemp());
+        Remote.handle();
+        Remote.handle(Handlers::IRRemote::Others);
+        Remote.handle(Handlers::IRRemote::Numbers);
+        Remote.handle(Handlers::IRRemote::Arrows);
     }
 }
