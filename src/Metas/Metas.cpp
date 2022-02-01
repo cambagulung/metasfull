@@ -18,7 +18,8 @@ namespace Metas
         LittleFS.begin();
         Remote.setup();
 
-        Data::setup();
+        Data::applyPersistentRequestHumi();
+        Data::applyPersistentRequestTemp();
     }
 
     void handle()
