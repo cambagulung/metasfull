@@ -14,7 +14,7 @@ namespace Metas::Interfaces::Blink
         uint8_t pin;
 
     public:
-        Blink(long interval);
+        Blink(long interval = 1000);
 
         void setup(uint8_t pin = LED_BUILTIN), handler(void);
     };

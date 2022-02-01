@@ -15,7 +15,7 @@ namespace Metas::Interfaces::IRRemote
         IRrecv irrcv;
 
     public:
-        IRRemote(u_int16_t pin);
+        IRRemote(u_int16_t pin = 14);
         void
         setup(void),
             handle(void),

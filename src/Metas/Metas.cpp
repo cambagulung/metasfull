@@ -1,3 +1,5 @@
+#include <LittleFS.h>
+#include <Metas/Data/Data.hpp>
 #include <Metas/Handlers/IRRemote/IRRemote.hpp>
 #include <Metas/Interfaces/Blink/Blink.hpp>
 #include <Metas/Interfaces/IRRemote/IRRemote.hpp>
@@ -8,21 +10,19 @@
 
 namespace Metas
 {
-    // Interfaces::Blink::Blink Blink(500);
-    Interfaces::IRRemote::IRRemote Remote(14);
+    Interfaces::IRRemote::IRRemote Remote;
 
     void Metas::setup()
     {
         Serial.begin(9600);
-
-        // Blink.setup();
+        LittleFS.begin();
         Remote.setup();
+
+        Data::setup();
     }
 
     void Metas::handle()
     {
-        // Blink.handler();
-
         Remote.handle();
         Remote.handle(Handlers::IRRemote::Others);
         Remote.handle(Handlers::IRRemote::Numbers);
