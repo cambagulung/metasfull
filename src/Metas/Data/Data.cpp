@@ -8,10 +8,10 @@ namespace Metas::Data
     File file;
 
     float
-        currentTemp = 0.0,
-        currentHumi = 0.0,
-        requestTemp = 0.0,
-        requestHumi = 0.0;
+        currentTemp,
+        currentHumi,
+        requestTemp,
+        requestHumi;
 
     void persistRequestTemp(void)
     {
