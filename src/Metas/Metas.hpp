@@ -3,11 +3,7 @@
 
 namespace Metas
 {
-    class Metas
-    {
-    public:
-        void setup(void), handle(void);
-    };
+    void setup(void), handle(void);
 }
 
 #endif

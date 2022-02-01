@@ -12,7 +12,7 @@ namespace Metas
 {
     Interfaces::IRRemote::IRRemote Remote;
 
-    void Metas::setup()
+    void setup()
     {
         Serial.begin(9600);
         LittleFS.begin();
@@ -21,7 +21,7 @@ namespace Metas
         Data::setup();
     }
 
-    void Metas::handle()
+    void handle()
     {
         Remote.handle();
         Remote.handle(Handlers::IRRemote::Others);

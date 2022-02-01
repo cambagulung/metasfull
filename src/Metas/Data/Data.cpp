@@ -1,26 +1,71 @@
+#include <stdlib.h>
+
 #include <Metas/Data/Data.hpp>
 #include <LittleFS.h>
 
 namespace Metas::Data
 {
+    File file;
+
     float
         currentTemp = 0.0,
         currentHumi = 0.0,
         requestTemp = 0.0,
         requestHumi = 0.0;
 
-    void setup()
+    void persistRequestTemp(void)
     {
-        File file;
-        
-        if(LittleFS.exists("/persistent/requestHumi"))
+        file = LittleFS.open("/persistent/requestTemp", "w");
+
+        file.print(getRequestTemp());
+
+        file.close();
+    }
+
+    void persistRequestHumi(void)
+    {
+        file = LittleFS.open("/persistent/requestHumi", "w");
+
+        file.print(getRequestHumi());
+
+        file.close();
+    }
+
+    void applyPersistentRequestTemp(void)
+    {
+        char *persistentTemp = (char *)"";
+
+        if (LittleFS.exists("/persistent/requestTemp"))
+        {
+            file = LittleFS.open("/persistent/requestTemp", "r");
+
+            while (file.available())
+            {
+                persistentTemp += file.read();
+            }
+
+            setRequestTemp(atof(persistentTemp));
+
+            file.close();
+        }
+    }
+
+    void applyPersistentRequestHumi(void)
+    {
+        char *persistentHumi = (char *)"";
+
+        if (LittleFS.exists("/persistent/requestHumi"))
         {
             file = LittleFS.open("/persistent/requestHumi", "r");
-            
-            if(file.available())
+
+            while (file.available())
             {
-                Serial.write(file.read());
+                persistentHumi += file.read();
             }
+
+            setRequestHumi(atof(persistentHumi));
+
+            file.close();
         }
     }
 

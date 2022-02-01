@@ -1,22 +1,24 @@
 #ifndef METAS_DATA_HPP
 #define METAS_DATA_HPP
 
-namespace Metas
+namespace Metas::Data
 {
-    namespace Data
-    {
-        void
-        setup(void),
-            setCurrentTemp(float temp),
-            setCurrentHumi(float humi),
-            setRequestTemp(float temp),
-            setRequestHumi(float humi);
+    void
+    setup(void),
+        persistRequestTemp(void),
+        persistRequestHumi(void),
+        applyPersistentRequestTemp(void),
+        applyPersistentRequestHumi(void),
+        setCurrentTemp(float temp),
+        setCurrentHumi(float humi),
+        setRequestTemp(float temp),
+        setRequestHumi(float humi);
 
-        float getCurrentTemp(void),
-            getCurrentHumi(void),
-            getRequestTemp(void),
-            getRequestHumi(void);
-    }
+    float getCurrentTemp(void),
+        getCurrentHumi(void),
+        getRequestTemp(void),
+        getRequestHumi(void);
+
 }
 
 #endif
