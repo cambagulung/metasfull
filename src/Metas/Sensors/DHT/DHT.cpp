@@ -21,14 +21,4 @@ namespace Metas::Sensors
     {
         return handler(dht.readTemperature(), dht.readHumidity());
     }
-
-    void DHT::handle(void handler(float temp))
-    {
-        return handler(dht.readTemperature());
-    }
-
-    void DHT::handle(void handler(float humi))
-    {
-        return handler(dht.readHumidity());
-    }
 }
