@@ -33,18 +33,14 @@ namespace Metas::Data
 
     void applyPersistentRequestTemp(void)
     {
-        char *persistentTemp = (char *)"";
-
         if (LittleFS.exists("/persistent/requestTemp"))
         {
             file = LittleFS.open("/persistent/requestTemp", "r");
 
-            while (file.available())
+            if (file.available())
             {
-                persistentTemp += file.read();
+                setRequestTemp(atof(file.readString().c_str()));
             }
-
-            setRequestTemp(atof(persistentTemp));
 
             file.close();
         }
@@ -52,18 +48,14 @@ namespace Metas::Data
 
     void applyPersistentRequestHumi(void)
     {
-        char *persistentHumi = (char *)"";
-
         if (LittleFS.exists("/persistent/requestHumi"))
         {
             file = LittleFS.open("/persistent/requestHumi", "r");
 
-            while (file.available())
+            if (file.available())
             {
-                persistentHumi += file.read();
+                setRequestHumi(atof(file.readString().c_str()));
             }
-
-            setRequestHumi(atof(persistentHumi));
 
             file.close();
         }
