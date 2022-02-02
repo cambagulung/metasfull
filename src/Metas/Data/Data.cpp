@@ -17,7 +17,7 @@ namespace Metas::Data
 
     void persistRequestTemp(void)
     {
-        file = LittleFS.open("/persistent/requestTemp", "w");
+        file = LittleFS.open("/persistent/request/temp", "w");
 
         file.print(getRequestTemp());
 
@@ -26,7 +26,7 @@ namespace Metas::Data
 
     void persistRequestHumi(void)
     {
-        file = LittleFS.open("/persistent/requestHumi", "w");
+        file = LittleFS.open("/persistent/request/humi", "w");
 
         file.print(getRequestHumi());
 
@@ -35,9 +35,9 @@ namespace Metas::Data
 
     void applyPersistentRequestTemp(void)
     {
-        if (LittleFS.exists("/persistent/requestTemp"))
+        if (LittleFS.exists("/persistent/request/temp"))
         {
-            file = LittleFS.open("/persistent/requestTemp", "r");
+            file = LittleFS.open("/persistent/request/temp", "r");
 
             if (file.available())
             {
@@ -50,9 +50,9 @@ namespace Metas::Data
 
     void applyPersistentRequestHumi(void)
     {
-        if (LittleFS.exists("/persistent/requestHumi"))
+        if (LittleFS.exists("/persistent/request/humi"))
         {
-            file = LittleFS.open("/persistent/requestHumi", "r");
+            file = LittleFS.open("/persistent/request/humi", "r");
 
             if (file.available())
             {
