@@ -4,11 +4,6 @@
 
 namespace Metas::Handlers::IRRemote
 {
-    void Arrows(char *value)
-    {
-        //
-    }
-
     void Numbers(int value)
     {
         //
@@ -16,9 +11,22 @@ namespace Metas::Handlers::IRRemote
 
     void Others(char value)
     {
-        if (value == '*')
+        if (Data::getState(1.0))
+        {
+            if (value == 'U')
+            {
+                Data::setRequestTemp(Data::getRequestTemp() + 10);
+            }
+        }
+
+        if (value == '#')
         {
             Serial.print(Data::getRequestTemp());
+        }
+
+        if (value == '*')
+        {
+            Data::setState(1.0);
         }
     }
 }

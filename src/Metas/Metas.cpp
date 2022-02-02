@@ -30,7 +30,6 @@ namespace Metas
         Remote.handle();
         Remote.handle(Handlers::IRRemote::Others);
         Remote.handle(Handlers::IRRemote::Numbers);
-        Remote.handle(Handlers::IRRemote::Arrows);
 
         Blink.handler();
     }

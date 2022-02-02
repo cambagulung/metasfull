@@ -5,9 +5,7 @@
 
 namespace Metas::Handlers::IRRemote
 {
-    void Arrows(char *value),
-        Numbers(int value),
-        Others(char value);
+    void Numbers(int value), Others(char value);
 }
 
 #endif

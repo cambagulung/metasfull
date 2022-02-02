@@ -21,25 +21,17 @@ namespace Metas::Interfaces::IRRemote
             };
         }
 
-        namespace Arrows
-        {
-            const char *values[5] = {"Right", "Left", "Up", "Down"};
-
-            const uint64_t keys[4] = {
-                16734885, // Right
-                16716015, // Left
-                16718055, // Up
-                16730805, // Down
-            };
-        }
-
         namespace Others
         {
-            const char values[3] = {'*', '#', 'O'};
-            const uint64_t keys[3] = {
+            const char values[7] = {'*', '#', 'O', 'R', 'L', 'U', 'D'};
+            const uint64_t keys[7] = {
                 16738455, // *
                 16756815, // #
                 16726215, // O
+                16734885, // R
+                16716015, // L
+                16718055, // U
+                16730805, // D
             };
         }
     }
@@ -102,22 +94,6 @@ namespace Metas::Interfaces::IRRemote
                 if (Buttons::Others::keys[i] == results.value)
                 {
                     handler(Buttons::Others::values[i]);
-                }
-            }
-
-            irrcv.resume();
-        }
-    }
-
-    void IRRemote::handle(void handler(char *value))
-    {
-        if (available)
-        {
-            for (int i = 0; i < 4; i++)
-            {
-                if (Buttons::Arrows::keys[i] == results.value)
-                {
-                    handler((char *)Buttons::Arrows::values[i]);
                 }
             }
 

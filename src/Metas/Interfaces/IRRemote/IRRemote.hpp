@@ -22,8 +22,7 @@ namespace Metas::Interfaces::IRRemote
             handle(void handler(uint64_t value)),
             handle(void handler(decode_results value)),
             handle(void handler(int value)),
-            handle(void handler(char value)),
-            handle(void handler(char *value));
+            handle(void handler(char value));
     };
 }
 

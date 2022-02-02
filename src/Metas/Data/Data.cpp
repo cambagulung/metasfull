@@ -7,30 +7,28 @@ namespace Metas::Data
 {
     File file;
 
-    int state;
-
     float
         currentTemp,
         currentHumi,
         requestTemp,
-        requestHumi;
+        requestHumi,
+        persistTemp,
+        persistHumi,
+        appState;
 
-    void persistRequestTemp(void)
+    void setState(float state)
     {
-        file = LittleFS.open("/persistent/request/temp", "w");
-
-        file.print(getRequestTemp());
-
-        file.close();
+        appState = state;
     }
 
-    void persistRequestHumi(void)
+    float getState(void)
     {
-        file = LittleFS.open("/persistent/request/humi", "w");
+        return appState;
+    }
 
-        file.print(getRequestHumi());
-
-        file.close();
+    bool getState(float state)
+    {
+        return appState == state;
     }
 
     void applyPersistentRequestTemp(void)
@@ -42,6 +40,8 @@ namespace Metas::Data
             if (file.available())
             {
                 setRequestTemp(atof(file.readString().c_str()));
+
+                persistTemp = getRequestTemp();
             }
 
             file.close();
@@ -57,6 +57,8 @@ namespace Metas::Data
             if (file.available())
             {
                 setRequestHumi(atof(file.readString().c_str()));
+
+                persistHumi = getRequestHumi();
             }
 
             file.close();
@@ -76,11 +78,27 @@ namespace Metas::Data
     void setRequestTemp(float temp)
     {
         requestTemp = temp;
+
+        if (persistTemp != temp)
+        {
+            file = LittleFS.open("/persistent/request/temp", "w");
+
+            file.print(persistTemp = temp);
+            file.close();
+        }
     }
 
     void setRequestHumi(float humi)
     {
         requestHumi = humi;
+
+        if (persistHumi != humi)
+        {
+            file = LittleFS.open("/persistent/request/humi", "w");
+
+            file.print(persistHumi = humi);
+            file.close();
+        }
     }
 
     float getCurrentTemp(void)
