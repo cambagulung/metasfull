@@ -6,27 +6,66 @@ namespace Metas::Handlers::IRRemote
 {
     void Numbers(int value)
     {
-        //
+        switch (value)
+        {
+        case 1:
+            // code block
+            break;
+        case 2:
+            // code block
+            break;
+        case 3:
+            // code block
+            break;
+        case 4:
+            // code block
+            break;
+        case 5:
+            // code block
+            break;
+        case 6:
+            // code block
+            break;
+        case 7:
+            // code block
+            break;
+        case 8:
+            // code block
+            break;
+        case 9:
+            // code block
+            break;
+        case 0:
+            // code block
+            break;
+        }
     }
 
     void Others(char value)
     {
-        if (Data::getState(1.0))
+        switch (value)
         {
-            if (value == 'U')
-            {
-                Data::setRequestTemp(Data::getRequestTemp() + 10);
-            }
-        }
-
-        if (value == '#')
-        {
-            Serial.print(Data::getRequestTemp());
-        }
-
-        if (value == '*')
-        {
-            Data::setState(1.0);
+        case '*':
+            // code block
+            break;
+        case '#':
+            // code block
+            break;
+        case 'O':
+            // code block
+            break;
+        case 'U':
+            // code block
+            break;
+        case 'R':
+            // code block
+            break;
+        case 'D':
+            // code block
+            break;
+        case 'L':
+            // code block
+            break;
         }
     }
 }
