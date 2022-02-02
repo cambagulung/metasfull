@@ -21,16 +21,8 @@ namespace Metas::Interfaces::Blink
         if (currentMillis - previousMillis >= interval)
         {
             previousMillis = currentMillis;
-            if (state == LOW)
-            {
-                state = HIGH;
-            }
-            else
-            {
-                state = LOW;
-            }
 
-            digitalWrite(pin, state);
+            digitalWrite(pin, !digitalRead(pin));
         }
     }
 }

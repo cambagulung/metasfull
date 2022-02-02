@@ -10,16 +10,19 @@
 
 namespace Metas
 {
+    Interfaces::Blink::Blink Blink;
     Interfaces::IRRemote::IRRemote Remote;
 
     void setup()
     {
         Serial.begin(9600);
         LittleFS.begin();
-        Remote.setup();
 
         Data::applyPersistentRequestHumi();
         Data::applyPersistentRequestTemp();
+
+        Remote.setup();
+        Blink.setup();
     }
 
     void handle()
@@ -28,5 +31,7 @@ namespace Metas
         Remote.handle(Handlers::IRRemote::Others);
         Remote.handle(Handlers::IRRemote::Numbers);
         Remote.handle(Handlers::IRRemote::Arrows);
+
+        Blink.handler();
     }
 }

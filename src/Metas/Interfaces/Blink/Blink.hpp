@@ -8,7 +8,6 @@ namespace Metas::Interfaces::Blink
     class Blink
     {
     private:
-        int state = LOW;
         long previousMillis = 0, currentMillis, interval;
 
         uint8_t pin;

@@ -7,6 +7,8 @@ namespace Metas::Data
 {
     File file;
 
+    int state;
+
     float
         currentTemp,
         currentHumi,
