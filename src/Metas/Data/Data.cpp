@@ -77,13 +77,13 @@ namespace Metas::Data
 
     void setRequestTemp(float temp)
     {
-        requestTemp = temp;
+        requestTemp = requestTemp;
 
-        if (persistTemp != temp)
+        if (persistTemp != requestTemp)
         {
             file = LittleFS.open("/persistent/request/temp", "w");
 
-            file.print(persistTemp = temp);
+            file.print(persistTemp = requestTemp);
             file.close();
         }
     }
@@ -92,11 +92,11 @@ namespace Metas::Data
     {
         requestHumi = humi;
 
-        if (persistHumi != humi)
+        if (persistHumi != requestHumi)
         {
             file = LittleFS.open("/persistent/request/humi", "w");
 
-            file.print(persistHumi = humi);
+            file.print(persistHumi = requestHumi);
             file.close();
         }
     }
