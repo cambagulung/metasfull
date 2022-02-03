@@ -13,20 +13,21 @@ namespace Metas::Data
         requestTemp,
         requestHumi,
         persistTemp,
-        persistHumi,
-        appState;
+        persistHumi;
 
-    void setState(float state)
+    long appState;
+
+    void setState(long state)
     {
         appState = state;
     }
 
-    float getState(void)
+    long getState(void)
     {
         return appState;
     }
 
-    bool getState(float state)
+    bool getState(long state)
     {
         return appState == state;
     }

@@ -11,15 +11,16 @@ namespace Metas::Data
         setCurrentHumi(float humi),
         setRequestTemp(float temp),
         setRequestHumi(float humi),
-        setState(float state);
+        setState(long state);
 
     float getCurrentTemp(void),
         getCurrentHumi(void),
         getRequestTemp(void),
-        getRequestHumi(void),
-        getState(void);
+        getRequestHumi(void);
 
-    bool getState(float state);
+    long getState(void);
+
+    bool getState(long state);
 
 }
 
