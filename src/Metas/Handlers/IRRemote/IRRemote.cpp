@@ -1,6 +1,5 @@
 #include <Metas/Data/Data.hpp>
 #include <Metas/Handlers/IRRemote/IRRemote.hpp>
-#include <SoftwareSerial.h>
 
 namespace Metas::Handlers::IRRemote
 {
